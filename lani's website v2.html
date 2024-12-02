@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Lani</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #ffcce6, #ffccdd); /* Baby pink colors */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            text-align: center;
+            color: #8b005d;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #e75480;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .heart {
+            font-size: 3rem;
+            animation: heartbeat 1.5s infinite;
+            color: #e75480;
+        }
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ff80aa;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .button:hover {
+            background: #ff4d85;
+        }
+        .choice-button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background: #ffd1dc;
+            color: #8b005d;
+            border: 2px solid #e75480;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .choice-button:hover {
+            background: #ffc0cb;
+        }
+        .hidden {
+            display: none;
+        }
+        /* Make the iframe background music "sit behind" the content */
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            z-index: -1; /* So it stays in the background */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SoundCloud Embedded Music -->
+    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1442820217&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true&auto_play=true">
+</iframe>
+
+    <div class="container" id="main-container">
+        <h1>For Lani 🌸</h1>
+        <p>
+            Lani, you are an extraordinary person with a heart so full of kindness, love, and light.  
+            Your ability to motivate me and the passion you bring to everything you do make you one of a kind.  
+            Every moment spent with you has been a gift, and I am so grateful to have shared this time with you.  
+            You shine so brightly, and the world is truly better with you in it.  
+        </p>
+        <p>
+            Whatever the future holds, you deserve all the happiness and love life has to offer.  
+        </p>
+        <p class="heart">❤️</p>
+        <button class="choice-button" onclick="showScreen('chance')">I'm Ready To Talk About Us <3</button>
+        <button class="choice-button" onclick="showScreen('mind')">Sorry, I've Made Up My Mind</button>
+        <button class="choice-button" onclick="showScreen('time')">I Think I Need More Time</button>
+    </div>
+
+    <!-- Alternate Screens -->
+    <div class="container hidden" id="chance">
+        <h1>Thank You for Another Chance ❤️</h1>
+        <p>
+            Lani, I promise to support you in everything you do.  
+            I want to give you the love and freedom you deserve while making sure you feel cherished every step of the way.  
+            I’ll communicate better, respect your boundaries, and always uplift you.  
+            You’ve made me want to be the best version of myself, and I’m ready to show you how much you mean to me.  
+        </p>
+        <p>You’ve made my world brighter just by being in it. Thank you for giving us another shot.</p>
+        <button class="button" onclick="goBack()">Go Back</button>
+    </div>
+
+    <div class="container hidden" id="mind">
+        <h1>I Understand ❤️</h1>
+        <p>
+            Lani, I respect your decision and want you to know that I will always care about you.  
+            You deserve to follow your heart and do what’s best for you.  
+            Please remember that my door is always open if you ever need someone to talk to or lean on.  
+            You’re an incredible person, and I’ll always wish the best for you, no matter where life takes you.  
+        </p>
+        <p>
+            Thank you for being a part of my life, even if only for a chapter. You’ll always hold a special place in my heart.
+        </p>
+        <button class="button" onclick="goBack()">Go Back</button>
+    </div>
+
+    <div class="container hidden" id="time">
+        <h1>Take Your Time ❤️</h1>
+        <p>
+            Lani, I completely understand, and I want you to have all the space you need.  
+            You’re amazing, and I trust that you’ll make the best decision for yourself.  
+            No matter how long it takes, I’ll be here if you decide to come back.  
+            You’ve always inspired me with your strength and thoughtfulness, and I know you’ll figure out what’s right.  
+        </p>
+        <p>
+            Take care of yourself, and know that I’m rooting for you, always.  
+        </p>
+        <button class="button" onclick="goBack()">Go Back</button>
+    </div>
+
+    <script>
+        function showScreen(screenId) {
+            // Hide the main container
+            document.getElementById('main-container').classList.add('hidden');
+            // Show the selected screen
+            document.getElementById(screenId).classList.remove('hidden');
+        }
+
+        function goBack() {
+            // Hide all screens
+            document.querySelectorAll('.container').forEach(container => container.classList.add('hidden'));
+            // Show the main container
+            document.getElementById('main-container').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
