@@ -16,7 +16,7 @@
             background: linear-gradient(to bottom right, #ffcce6, #ffccdd); /* Baby pink colors */
             color: #8b005d;
         }
-        /* Main container holding text and audio player */
+        /* Main container holding text, image, and audio player */
         .container {
             display: flex;
             align-items: center;
@@ -31,7 +31,7 @@
         }
         .text-container {
             max-width: 70%; /* Makes text more prominent */
-            margin-right: 20px; /* Adds some space between the text and audio player */
+            margin-right: 20px; /* Adds some space between the text and other elements */
         }
         h1 {
             font-size: 2.5rem;
@@ -91,19 +91,19 @@
         /* Smaller audio player on the right */
         audio {
             width: 15%; /* Small width */
-            margin-left: 20px;
-            background-color: #ffccdd;
+            margin-top: 20px;
             border-radius: 10px;
+        }
+        /* Style for the image above the audio player */
+        img {
+            max-width: 300px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
 <body>
-
-    <!-- Audio player to play MP3 (without autoplay) -->
-    <audio id="audioPlayer" controls>
-        <source src="https://raw.githubusercontent.com/WalmartSoda/Lanis-Website/main/DanielCaesar-LetMeGo.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
 
     <div class="container">
         <div class="text-container">
@@ -122,6 +122,15 @@
             <button class="choice-button" onclick="showScreen('mind')">Sorry, I've Made Up My Mind</button>
             <button class="choice-button" onclick="showScreen('time')">I Think I Need More Time</button>
         </div>
+        <div>
+            <!-- Image of Lani -->
+            <img src="https://raw.githubusercontent.com/WalmartSoda/Lanis-Website/main/lani.png" alt="Lani">
+            <!-- Audio player -->
+            <audio id="audioPlayer" controls>
+                <source src="https://raw.githubusercontent.com/WalmartSoda/Lanis-Website/main/DanielCaesar-LetMeGo.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
     </div>
 
     <!-- Alternate Screens -->
@@ -133,7 +142,6 @@
             I’ll communicate better, respect your boundaries, and always uplift you.  
             You’ve made me want to be the best version of myself, and I’m ready to show you how much you mean to me.  
         </p>
-        <p>You’ve made my world brighter just by being in it. Thank you for giving us another shot.</p>
         <button class="button" onclick="goBack()">Go Back</button>
     </div>
     <div class="container hidden" id="mind">
