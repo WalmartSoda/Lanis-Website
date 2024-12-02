@@ -10,6 +10,7 @@
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -30,7 +31,7 @@
         }
         .text-container {
             max-width: 70%; /* Makes text more prominent */
-            margin-right: 20px; /* Adds some space between the text and audio player */
+            margin-right: 20px; /* Adds some space between the text and other content */
         }
         h1 {
             font-size: 2.5rem;
@@ -74,14 +75,21 @@
             display: none;
         }
         audio {
-            width: 15%;
-            margin-left: 20px;
+            width: 90%; /* Adjust as needed */
+            max-width: 300px;
+            margin: 20px 0;
             background-color: #ffccdd;
             border-radius: 10px;
         }
     </style>
 </head>
 <body>
+
+    <!-- Audio player (placed outside of main container to keep it visible) -->
+    <audio id="audioPlayer" controls>
+        <source src="https://raw.githubusercontent.com/WalmartSoda/Lanis-Website/main/DanielCaesar-LetMeGo.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
 
     <!-- Main Section -->
     <div class="container" id="main-container">
