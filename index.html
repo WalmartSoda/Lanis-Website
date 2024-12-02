@@ -74,19 +74,16 @@
         .hidden {
             display: none;
         }
+        /* Hide audio player */
         audio {
-            width: 90%; /* Adjust as needed */
-            max-width: 300px;
-            margin: 20px 0;
-            background-color: #ffccdd;
-            border-radius: 10px;
+            display: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- Audio player (placed outside of main container to keep it visible) -->
-    <audio autoplay loop>
+    <!-- Hidden autoplay audio -->
+    <audio id="audioPlayer" autoplay>
         <source src="https://raw.githubusercontent.com/WalmartSoda/Lanis-Website/main/DanielCaesar-LetMeGo.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
