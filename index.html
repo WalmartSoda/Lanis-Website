@@ -7,7 +7,6 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom right, #ffcce6, #ffccdd); /* Baby pink colors */
             margin: 0;
             padding: 0;
             display: flex;
@@ -16,7 +15,9 @@
             height: 100vh;
             overflow: hidden;
             position: relative;
+            background: linear-gradient(to bottom right, #ffcce6, #ffccdd); /* Baby pink colors */
         }
+        /* Container styling */
         .container {
             text-align: center;
             color: #8b005d;
@@ -27,7 +28,7 @@
             width: 80%;
             max-width: 600px;
             position: relative;
-            z-index: 1;
+            z-index: 2; /* Higher than audio player */
         }
         h1 {
             font-size: 2.5rem;
@@ -84,24 +85,22 @@
         .hidden {
             display: none;
         }
-        /* Make the iframe background music "sit behind" the content */
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+        /* Make sure the audio player stays in the foreground */
+        audio {
+            margin-top: 20px;
             width: 100%;
-            height: 100%;
-            border: none;
-            z-index: -1; /* So it stays in the background */
+            background-color: #ffccdd;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
 
-    <!-- SoundCloud Embedded Music -->
-    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1442820217&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true&auto_play=true">
-    </iframe>
+    <!-- Audio player to play MP3 -->
+    <audio controls autoplay>
+    <source src="https://drive.google.com/uc?export=view&id=1YJ8eJ0PL_R2V8GDBcjkbXnQDRev9uUYE" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
 
     <div class="container" id="main-container">
         <h1>For Lani 🌸</h1>
@@ -132,49 +131,40 @@
         <p>You’ve made my world brighter just by being in it. Thank you for giving us another shot.</p>
         <button class="button" onclick="goBack()">Go Back</button>
     </div>
-
     <div class="container hidden" id="mind">
-        <h1>I Understand ❤️</h1>
+        <h1>I Understand 💔</h1>
         <p>
-            Lani, I respect your decision and want you to know that I will always care about you.  
-            You deserve to follow your heart and do what’s best for you.  
-            Please remember that my door is always open if you ever need someone to talk to or lean on.  
-            You’re an incredible person, and I’ll always wish the best for you, no matter where life takes you.  
-        </p>
-        <p>
-            Thank you for being a part of my life, even if only for a chapter. You’ll always hold a special place in my heart.
+            I respect your decision and want nothing but happiness for you.  
+            If you ever change your mind, I’ll be here, waiting to support you in any way I can.  
+            No matter what happens, I’ll always cherish the time we’ve had together and hope you continue to thrive and find joy in life.  
         </p>
         <button class="button" onclick="goBack()">Go Back</button>
     </div>
-
     <div class="container hidden" id="time">
-        <h1>Take Your Time ❤️</h1>
+        <h1>Take All the Time You Need 💖</h1>
         <p>
-            Lani, I completely understand, and I want you to have all the space you need.  
-            You’re amazing, and I trust that you’ll make the best decision for yourself.  
-            No matter how long it takes, I’ll be here if you decide to come back.  
-            You’ve always inspired me with your strength and thoughtfulness, and I know you’ll figure out what’s right.  
-        </p>
-        <p>
-            Take care of yourself, and know that I’m rooting for you, always.  
+            I understand that sometimes we need space to reflect and process.  
+            Know that I’m here for you, no pressure.  
+            When you’re ready, we can have an open and honest conversation. Until then, I’ll be supporting you from afar, wishing you nothing but peace and clarity.  
         </p>
         <button class="button" onclick="goBack()">Go Back</button>
     </div>
 
     <script>
-        function showScreen(screenId) {
-            // Hide the main container
+        // Function to switch between screens
+        function showScreen(screen) {
             document.getElementById('main-container').classList.add('hidden');
-            // Show the selected screen
-            document.getElementById(screenId).classList.remove('hidden');
+            document.getElementById(screen).classList.remove('hidden');
         }
 
+        // Function to go back to the main screen
         function goBack() {
-            // Hide all screens
-            document.querySelectorAll('.container').forEach(container => container.classList.add('hidden'));
-            // Show the main container
+            document.getElementById('chance').classList.add('hidden');
+            document.getElementById('mind').classList.add('hidden');
+            document.getElementById('time').classList.add('hidden');
             document.getElementById('main-container').classList.remove('hidden');
         }
     </script>
+
 </body>
 </html>
