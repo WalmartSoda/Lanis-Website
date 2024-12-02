@@ -16,7 +16,6 @@
             background: linear-gradient(to bottom right, #ffcce6, #ffccdd); /* Baby pink colors */
             color: #8b005d;
         }
-        /* Main container holding text and audio player */
         .container {
             display: flex;
             align-items: center;
@@ -56,20 +55,6 @@
                 transform: scale(1.2);
             }
         }
-        .button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #ff80aa;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        .button:hover {
-            background: #ff4d85;
-        }
         .choice-button {
             display: inline-block;
             margin: 10px;
@@ -88,9 +73,8 @@
         .hidden {
             display: none;
         }
-        /* Smaller audio player on the right */
         audio {
-            width: 15%; /* Small width */
+            width: 15%;
             margin-left: 20px;
             background-color: #ffccdd;
             border-radius: 10px;
@@ -99,13 +83,8 @@
 </head>
 <body>
 
-    <!-- Audio player to play MP3 (without autoplay) -->
-    <audio id="audioPlayer" controls>
-        <source src="https://raw.githubusercontent.com/WalmartSoda/Lanis-Website/main/DanielCaesar-LetMeGo.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-
-    <div class="container">
+    <!-- Main Section -->
+    <div class="container" id="main-container">
         <div class="text-container">
             <h1>For My Best Friend 🌸</h1>
             <p>
@@ -114,9 +93,7 @@
                 Every moment spent with you has been a gift, and I am so grateful to have shared this time with you.  
                 You shine so brightly, and the world is truly better with you in it.  
             </p>
-            <p>
-                Whatever the future holds, you deserve all the happiness and love life has to offer.  
-            </p>
+            <p>Whatever the future holds, you deserve all the happiness and love life has to offer.</p>
             <p class="heart">❤️</p>
             <button class="choice-button" onclick="showScreen('chance')">I'm Ready To Talk About Us <3</button>
             <button class="choice-button" onclick="showScreen('mind')">Sorry, I've Made Up My Mind</button>
@@ -130,44 +107,37 @@
         <p>
             Lani, I promise to support you in everything you do.  
             I want to give you the love and freedom you deserve while making sure you feel cherished every step of the way.  
-            I’ll communicate better, respect your boundaries, and always uplift you.  
-            You’ve made me want to be the best version of myself, and I’m ready to show you how much you mean to me.  
         </p>
-        <p>You’ve made my world brighter just by being in it. Thank you for giving us another shot.</p>
-        <button class="button" onclick="goBack()">Go Back</button>
+        <button class="choice-button" onclick="goBack()">Go Back</button>
     </div>
     <div class="container hidden" id="mind">
         <h1>I Understand 💔</h1>
         <p>
             I respect your decision and want nothing but happiness for you.  
-            If you ever change your mind, I’ll be here, waiting to support you in any way I can.  
-            No matter what happens, I’ll always cherish the time we’ve had together and hope you continue to thrive and find joy in life.  
+            No matter what happens, I’ll always cherish the time we’ve had together and hope you thrive in life.  
         </p>
-        <button class="button" onclick="goBack()">Go Back</button>
+        <button class="choice-button" onclick="goBack()">Go Back</button>
     </div>
     <div class="container hidden" id="time">
         <h1>Take All the Time You Need 💖</h1>
         <p>
             I understand that sometimes we need space to reflect and process.  
-            Know that I’m here for you, no pressure.  
-            When you’re ready, we can have an open and honest conversation. Until then, I’ll be supporting you from afar, wishing you nothing but peace and clarity.  
+            When you’re ready, we can have an open and honest conversation. Until then, I’m here for you.  
         </p>
-        <button class="button" onclick="goBack()">Go Back</button>
+        <button class="choice-button" onclick="goBack()">Go Back</button>
     </div>
 
     <script>
         // Function to switch between screens
-        function showScreen(screen) {
-            document.getElementById('main-container').classList.add('hidden');
-            document.getElementById(screen).classList.remove('hidden');
+        function showScreen(screenId) {
+            document.getElementById('main-container').classList.add('hidden'); // Hide main container
+            document.getElementById(screenId).classList.remove('hidden'); // Show the selected screen
         }
 
         // Function to go back to the main screen
         function goBack() {
-            document.getElementById('chance').classList.add('hidden');
-            document.getElementById('mind').classList.add('hidden');
-            document.getElementById('time').classList.add('hidden');
-            document.getElementById('main-container').classList.remove('hidden');
+            document.querySelectorAll('.container').forEach(container => container.classList.add('hidden')); // Hide all containers
+            document.getElementById('main-container').classList.remove('hidden'); // Show main container
         }
     </script>
 
