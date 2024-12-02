@@ -16,38 +16,39 @@
             background: linear-gradient(to bottom right, #ffcce6, #ffccdd); /* Baby pink colors */
             color: #8b005d;
         }
+
         /* Main container holding text, image, and audio player */
         .container {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            flex-direction: row;
             padding: 20px;
             border-radius: 15px;
             background: rgba(255, 255, 255, 0.9);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             width: 80%;
             max-width: 900px;
+            text-align: center;
         }
-        .text-container {
-            max-width: 70%; /* Makes text more prominent */
-            margin-right: 20px; /* Adds some space between the text and other elements */
-        }
+
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
             color: #e75480;
         }
+
         p {
             font-size: 1.2rem;
             margin-bottom: 20px;
             line-height: 1.5;
         }
+
         .heart {
             font-size: 3rem;
             animation: heartbeat 1.5s infinite;
             color: #e75480;
         }
+
         @keyframes heartbeat {
             0%, 100% {
                 transform: scale(1);
@@ -56,6 +57,7 @@
                 transform: scale(1.2);
             }
         }
+
         .button {
             margin-top: 20px;
             padding: 10px 20px;
@@ -67,9 +69,11 @@
             cursor: pointer;
             transition: background 0.3s ease;
         }
+
         .button:hover {
             background: #ff4d85;
         }
+
         .choice-button {
             display: inline-block;
             margin: 10px;
@@ -82,55 +86,58 @@
             cursor: pointer;
             transition: background 0.3s ease;
         }
+
         .choice-button:hover {
             background: #ffc0cb;
         }
+
         .hidden {
             display: none;
         }
-        /* Smaller audio player on the right */
-        audio {
-            width: 15%; /* Small width */
-            margin-top: 20px;
-            border-radius: 10px;
-        }
-        /* Style for the image above the audio player */
+
+        /* Style for the image */
         img {
             max-width: 300px;
             border-radius: 15px;
             margin-bottom: 20px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
+
+        /* Style for the audio player */
+        audio {
+            width: 90%; /* Wide width for better visibility */
+            margin-top: 20px;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="text-container">
-            <h1>For Lani 🌸</h1>
-            <p>
-                Lani, you are an extraordinary person with a heart so full of kindness, love, and light.  
-                Your ability to motivate me and the passion you bring to everything you do make you one of a kind.  
-                Every moment spent with you has been a gift, and I am so grateful to have shared this time with you.  
-                You shine so brightly, and the world is truly better with you in it.  
-            </p>
-            <p>
-                Whatever the future holds, you deserve all the happiness and love life has to offer.  
-            </p>
-            <p class="heart">❤️</p>
-            <button class="choice-button" onclick="showScreen('chance')">I'm Ready To Talk About Us <3</button>
-            <button class="choice-button" onclick="showScreen('mind')">Sorry, I've Made Up My Mind</button>
-            <button class="choice-button" onclick="showScreen('time')">I Think I Need More Time</button>
-        </div>
-        <div>
-            <!-- Image of Lani -->
-            <img src="https://raw.githubusercontent.com/WalmartSoda/Lanis-Website/main/lani.png" alt="Lani">
-            <!-- Audio player -->
-            <audio id="audioPlayer" controls>
-                <source src="https://raw.githubusercontent.com/WalmartSoda/Lanis-Website/main/DanielCaesar-LetMeGo.mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
+        <!-- Image of Lani -->
+        <img src="https://raw.githubusercontent.com/WalmartSoda/Lanis-Website/main/lani.png" alt="Lani">
+
+        <!-- Text content -->
+        <h1>For Lani 🌸</h1>
+        <p>
+            Lani, you are an extraordinary person with a heart so full of kindness, love, and light.  
+            Your ability to motivate me and the passion you bring to everything you do make you one of a kind.  
+            Every moment spent with you has been a gift, and I am so grateful to have shared this time with you.  
+            You shine so brightly, and the world is truly better with you in it.  
+        </p>
+        <p>
+            Whatever the future holds, you deserve all the happiness and love life has to offer.  
+        </p>
+        <p class="heart">❤️</p>
+        <button class="choice-button" onclick="showScreen('chance')">I'm Ready To Talk About Us <3</button>
+        <button class="choice-button" onclick="showScreen('mind')">Sorry, I've Made Up My Mind</button>
+        <button class="choice-button" onclick="showScreen('time')">I Think I Need More Time</button>
+
+        <!-- Audio player -->
+        <audio id="audioPlayer" controls>
+            <source src="https://raw.githubusercontent.com/WalmartSoda/Lanis-Website/main/DanielCaesar-LetMeGo.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
     </div>
 
     <!-- Alternate Screens -->
@@ -166,7 +173,7 @@
     <script>
         // Function to switch between screens
         function showScreen(screen) {
-            document.getElementById('main-container').classList.add('hidden');
+            document.querySelector('.container').classList.add('hidden');
             document.getElementById(screen).classList.remove('hidden');
         }
 
@@ -175,7 +182,7 @@
             document.getElementById('chance').classList.add('hidden');
             document.getElementById('mind').classList.add('hidden');
             document.getElementById('time').classList.add('hidden');
-            document.getElementById('main-container').classList.remove('hidden');
+            document.querySelector('.container').classList.remove('hidden');
         }
     </script>
 
