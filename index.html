@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Lani</title>
+    <title>Asu's Website</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -14,24 +14,21 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(to bottom right, #ffcce6, #ffccdd); /* Baby pink colors */
+            background: linear-gradient(to bottom right, #ff99cc, #ff6699); /* Valentine's Theme */
             color: #8b005d;
         }
         .container {
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: row;
+            flex-direction: column;
             padding: 20px;
             border-radius: 15px;
             background: rgba(255, 255, 255, 0.9);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             width: 80%;
             max-width: 900px;
-        }
-        .text-container {
-            max-width: 70%; /* Makes text more prominent */
-            margin-right: 20px; /* Adds some space between the text and other content */
+            text-align: center;
         }
         h1 {
             font-size: 2.5rem;
@@ -49,12 +46,8 @@
             color: #e75480;
         }
         @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
         }
         .choice-button {
             display: inline-block;
@@ -74,63 +67,45 @@
         .hidden {
             display: none;
         }
-        audio {
-            width: 90%; /* Adjust as needed */
-            max-width: 300px;
-            margin: 20px 0;
-            background-color: #ffccdd;
-            border-radius: 10px;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Audio player (placed outside of main container to keep it visible) -->
+    <!-- New Song for the Moment -->
     <audio id="audioPlayer" controls>
-        <source src="https://raw.githubusercontent.com/WalmartSoda/Lanis-Website/main/DanielCaesar-LetMeGo.mp3" type="audio/mp3">
+        <source src="https://raw.githubusercontent.com/WalmartSoda/Asus-Website/main/Hissediyorum.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
     <!-- Main Section -->
     <div class="container" id="main-container">
-        <div class="text-container">
-            <h1>For My Best Friend 🌸</h1>
-            <p>
-                Lani, you are an extraordinary person with a heart so full of kindness, love, and light.  
-                Your ability to motivate me and the passion you bring to everything you do make you one of a kind.  
-                Every moment spent with you has been a gift, and I am so grateful to have shared this time with you.  
-                You shine so brightly, and the world is truly better with you in it.  
-            </p>
-            <p>Whatever the future holds, you deserve all the happiness and love life has to offer.</p>
-            <p class="heart">❤️</p>
-            <button class="choice-button" onclick="showScreen('chance')">I'm Ready To Talk About Us <3</button>
-            <button class="choice-button" onclick="showScreen('mind')">Sorry, I've Made Up My Mind</button>
-            <button class="choice-button" onclick="showScreen('time')">I Think I Need More Time</button>
-        </div>
+        <h1>Happy Valentine's Day, Asu! 💖</h1>
+        <p>
+            Asu, I've really enjoyed all the time we've spent together. Every moment with you is special. 
+            So, I wanted to take this Valentine's Day as the perfect opportunity to ask you something...
+        </p>
+        <p class="heart">❤️</p>
+        <button class="choice-button" onclick="showScreen('goingOut')">I Want to Be With You 💕</button>
+        <button class="choice-button" onclick="showScreen('fwb')">Let's Just Stay How We Are 😎</button>
     </div>
 
-    <!-- Alternate Screens -->
-    <div class="container hidden" id="chance">
-        <h1>Thank You for Another Chance ❤️</h1>
+    <!-- Going Out Message -->
+    <div class="container hidden" id="goingOut">
+        <h1>I'm So Happy! ❤️</h1>
         <p>
-            Lani, I promise to support you in everything you do.  
-            I want to give you the love and freedom you deserve while making sure you feel cherished every step of the way.  
+            Asu, you mean so much to me. I know no relationship is perfect, but I want to grow with you, support you, 
+            and be someone you can always count on. No matter what challenges come our way, I know we can work through them together. 
+            Thank you for making me feel this way. 💖
         </p>
         <button class="choice-button" onclick="goBack()">Go Back</button>
     </div>
-    <div class="container hidden" id="mind">
-        <h1>I Understand 💔</h1>
+
+    <!-- Friends With Benefits Message -->
+    <div class="container hidden" id="fwb">
+        <h1>You're a Chill Dude 😎</h1>
         <p>
-            I respect your decision and want nothing but happiness for you.  
-            No matter what happens, I’ll always cherish the time we’ve had together and hope you thrive in life.  
-        </p>
-        <button class="choice-button" onclick="goBack()">Go Back</button>
-    </div>
-    <div class="container hidden" id="time">
-        <h1>Take All the Time You Need 💖</h1>
-        <p>
-            I understand that sometimes we need space to reflect and process.  
-            When you’re ready, we can have an open and honest conversation. Until then, I’m here for you.  
+            Hey, no worries at all. I respect your decision, and honestly, I just enjoy being around you. 
+            Whether we're just vibing or doing whatever, I love our dynamic. No pressure, no worries, just good times.
         </p>
         <button class="choice-button" onclick="goBack()">Go Back</button>
     </div>
@@ -139,13 +114,13 @@
         // Function to switch between screens
         function showScreen(screenId) {
             document.getElementById('main-container').classList.add('hidden'); // Hide main container
-            document.getElementById(screenId).classList.remove('hidden'); // Show the selected screen
+            document.getElementById(screenId).classList.remove('hidden'); // Show selected screen
         }
-
-        // Function to go back to the main screen
+        
+        // Function to go back to main screen
         function goBack() {
-            document.querySelectorAll('.container').forEach(container => container.classList.add('hidden')); // Hide all containers
-            document.getElementById('main-container').classList.remove('hidden'); // Show main container
+            document.querySelectorAll('.container').forEach(container => container.classList.add('hidden'));
+            document.getElementById('main-container').classList.remove('hidden');
         }
     </script>
 
